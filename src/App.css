@@ -1,39 +1,264 @@
-.App {
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
   text-align: center;
+  max-block-size: 100vh;
+  background-color: rgb(43, 47, 57);
+  color: white;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+ul {
+  list-style: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
+.App {
+  max-block-size: 100vh;
+}
+
+.homepage-container,
+.login-page,
+.signup-page {
+  padding-block-start: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ******************** */
+/*   NAV BAR STYLING    */
+/* ******************** */
+
+.navbar {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  inline-size: 100vw;
+  padding: 20px;
+  border-block-end: 1px solid;
+  background-color: rgb(43, 47, 57);
+}
+
+.report-defect-button {
+  margin-inline-start: auto;
+  box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.498);
+  margin-inline-end: 10px;
+  padding: 7px;
+  border-radius: 5px;
+  background-color: rgb(126, 178, 201);
+  color: white;
+  animation: btnBounce 3s infinite;
+}
+
+@keyframes btnBounce {
+  25% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.05);
   }
 }
 
-.App-header {
-  min-height: 100vh;
+.menu-popout {
+  font-size: 2rem;
+  display: none;
+  position: absolute;
+  padding: 10px;
+  inline-size: 100vw;
+  block-size: 100vh;
+  right: 0;
+  top: 0;
+  background: rgba(209, 209, 209, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 10px;
+}
+.is-active {
+  display: flex;
+  flex-direction: column;
+}
+
+.popout-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15vh;
+  padding: 50px;
+  margin-block-end: auto;
+}
+
+.burger-btn-popout-menu {
+  align-self: flex-end;
+}
+
+.menu-btn {
+  margin: 0;
+  padding: 10px;
+}
+
+.logged-in-display {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.logged-in-display img {
+  border-radius: 50%;
+}
+/* ************************ */
+/*   LANDING PAGE STYLING   */
+/* ************************ */
+
+.landing-page-container {
+  outline: 1px solid white;
+  padding: 1rem;
+  inline-size: auto;
+  block-size: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
 }
 
-.App-link {
-  color: rgb(112, 76, 182);
+.landing-page-content h2 {
+  margin-block-end: 20vh;
 }
 
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+.landing-page-link {
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-page-link > div {
+  margin: 0;
+  animation: none;
+}
+
+/* ******************** */
+/*   HOMEPAGE STYLING   */
+/* ******************** */
+
+.defect-list-selector {
+  border: none;
+  background-color: inherit;
+  box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.498);
+  padding: 1rem;
+  inline-size: 100vw;
+  color: inherit;
+  font-size: 1rem;
+}
+
+/* ******************** */
+/* DEFECT LIST STYLING  */
+/* ******************** */
+
+.defect-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+.defect-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.defect-card {
+  /* border: 1px solid; */
+  padding: 10px;
+  margin-block-end: 10px;
+  inline-size: 75%;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.498);
+  background-color: rgb(62, 68, 78);
+}
+
+.defect-card button {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(126, 178, 201);
+  color: white;
+  box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.498);
+}
+
+.defect-card > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* ******************** */
+/**** MODAL STYLING  ****/
+/* ******************** */
+
+.modal-window {
+  position: absolute;
+  inline-size: 100vw;
+  block-size: 100vh;
+  top: 0;
+  left: 0;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(79, 79, 79, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.modal-content {
+  inline-size: 75%;
+  block-size: 75%;
+  border-radius: 5px;
+  box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.498);
+  background-color: rgb(62, 68, 78);
+  overflow: scroll;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+}
+
+.modal-header div {
+  margin-inline-start: auto;
+}
+
+.modal-close-btn {
+  margin-inline-start: auto;
+}
+
+/* *********************************** */
+/**** COMPLETE DEFECT FORM STYLING  ****/
+/* *********************************** */
+
+.complete-defect-form {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  gap: 5px;
+  overflow: scroll;
+}
+
+.complete-defect-form input,
+.complete-defect-form textarea,
+.complete-defect-form select,
+.complete-defect-form button {
+  padding: 10px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0px 0px 5px 1px lightgray;
 }
